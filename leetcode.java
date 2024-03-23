@@ -1,34 +1,26 @@
-import java.util.Arrays;
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode() {}
+    ListNode(int val) { this.val = val; }
+    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+}
 
 class Solution {
-  public int findMaxLength(int[] nums) {
-    int[] arr = new int[2 * nums.length + 1];
-    Arrays.fill(arr, -2);
-    arr[nums.length] = -1;
-    int maxlen = 0, count = 0;
-    for (int i = 0; i < nums.length; i++) {
-      count = count + (nums[i] == 0 ? -1 : 1);
-      if (arr[count + nums.length] >= -1) {
-        maxlen = Math.max(maxlen, i - arr[count + nums.length]);
-      } else {
-        arr[count + nums.length] = i;
+  public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
+    ListNode temp = list1.next;
+    if (a==0) { list1 = list2; }
+    else { 
+      for (int i = 0; i < a; i++) { 
+        temp = list1.next;
       }
     }
-    return maxlen;
   }
 }
 
-class product {
-  public static void main(String[] args) {
+class minimum {
+  public static void main (String[] args) {
     Solution s = new Solution();
-    int[] nums = { 0, 1 };
-    System.err.println(s.findMaxLength(nums));
-    nums = new int[] { 0, 1, 0 };
-    System.err.println(s.findMaxLength(nums));
-    nums = new int[] { 0, 0, 1, 0, 0, 0, 1, 1 };
-    System.err.println(s.findMaxLength(nums));
-    nums = new int[] { 0, 1, 1, 0, 1, 1, 1, 0 };
-    System.err.println(s.findMaxLength(nums));
-
+    
   }
 }
