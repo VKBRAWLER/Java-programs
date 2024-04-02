@@ -1,26 +1,26 @@
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-}
-
 class Solution {
-  public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
-    ListNode temp = list1.next;
-    if (a==0) { list1 = list2; }
-    else { 
-      for (int i = 0; i < a; i++) { 
-        temp = list1.next;
+  public boolean isIsomorphic(String s, String t) {
+    int[] hash = new int[256];
+    for (int i = 0; i < s.length(); i++) {
+      char sChar = s.charAt(i);
+      if (hash[sChar] == 1) continue;
+      hash[sChar] = 1;
+      char tChar = t.charAt(i);
+      for (int j = i; j < s.length(); j++) {
+        if (s.charAt(j) == sChar || t.charAt(j) == tChar) {
+          if (s.charAt(j) == sChar && t.charAt(j) == tChar) continue;
+          else return false;
+        }
       }
     }
+    return true;
   }
 }
-
-class minimum {
-  public static void main (String[] args) {
+public class leetcode {
+  public static void main(String[] args) {
     Solution s = new Solution();
-    
+    System.out.println(s.isIsomorphic("egg", "add"));
+    System.out.println(s.isIsomorphic("foo", "bar"));
+    System.out.println(s.isIsomorphic("paper", "title"));
   }
 }
