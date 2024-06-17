@@ -1,12 +1,9 @@
-import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
 public class W31 {
   public static void main(String[] args) {
     int n = 20;
     int[] nums = new int[n];
-    Scanner sc = new Scanner(System.in);
     Random random = new Random();
     // takes random input
     for (int i = 0; i < nums.length; i++) {
